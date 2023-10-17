@@ -17,7 +17,13 @@ $router->map('GET', '/addProduct', function() {
 
 $router->map('POST', '/addProduct', function() {
 	$productDTO = $_POST;
+	var_dump($productDTO);
     ProductController::create($productDTO);
+});
+
+$router->map('POST', '/delProduct', function() {
+	$productIds = $_POST;
+    ProductController::delete($productIds);
 });
 
 //--------------------Just For Testing------------

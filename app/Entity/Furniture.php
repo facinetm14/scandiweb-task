@@ -2,29 +2,55 @@
 
 namespace App\Entity;
 
-use App\Entity\Product as Product;
 use App\Helpers\HydrateEntity as HydrateEntity;
+use App\Entity\Product as Product;
 
 class Furniture extends Product
 {
 	use HydrateEntity;
 
-	private $weight;
+	private  $height;
+	private  $width;
+	private  $length;
+
 
 	public function __construct()
 	{
 		parent::__construct();
+		$this->height = 0;
+		$this->width = 0;
+		$this->length = 0;
 		$this->type = 'Furniture';
-		$this->weight = 0;
 	}
 
-	public function getWeight()
+	public function getHeight()
 	{
-		return $this->weight;
+		return $this->height;
 	}
 
-	public function setWeight($weight)
+	public function getWidth()
 	{
-		$this->weight = $weight;
+		return $this->width;
 	}
+
+	public function getLength()
+	{
+		return $this->length;
+	}
+
+	public function setHeight($height)
+	{
+		$this->height = $height;
+	}
+
+	public function setWidth($width)
+	{
+		$this->width = $width;
+	}
+
+	public function setLength($length)
+	{
+		$this->length = $length;
+	}
+
 }

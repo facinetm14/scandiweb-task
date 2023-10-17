@@ -16,8 +16,17 @@ class ProductController
 	}
 
 	static function create($productDTO) {
+		try {
+			(new ProductService())->save($productDTO);
+		}
+		catch(Exception ) {
+			
+		}
+		header("Location: http://localhost/scandiweb-task/");
+	}
 
-		ProductService::save($productDTO);
-		self::index();
+	static function delete($ids) {
+		(new ProductService())->delete($ids);
+		header("Location: http://localhost/scandiweb-task/");
 	}
 }

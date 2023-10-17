@@ -12,7 +12,7 @@
 		<div class="col-lg-3 col-md-6 col-sm-12 mt-5">
 		<div class="card" style="">
 			<div class="card-body">
-				<input class="card-title text-left" type="checkbox"/>
+				<input class="card-title text-left" type="checkbox" name="<?=$product->getSku()?>"/>
 				<div class="text-center card-text">
 					<span><?= $product->getSku() ?></span><br/>
 					<span><?= $product->getName() ?></span><br/>
@@ -34,4 +34,5 @@
 		</div>
 	</div>
 	<?php endforeach ?>
+	</form>
 </div>

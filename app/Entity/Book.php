@@ -2,55 +2,29 @@
 
 namespace App\Entity;
 
-use App\Helpers\HydrateEntity as HydrateEntity;
 use App\Entity\Product as Product;
+use App\Helpers\HydrateEntity as HydrateEntity;
 
 class Book extends Product
 {
 	use HydrateEntity;
 
-	private  $height;
-	private  $width;
-	private  $length;
-
+	private $weight;
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->height = 0;
-		$this->width = 0;
-		$this->length = 0;
 		$this->type = 'Book';
+		$this->weight = 0;
 	}
 
-	public function getHeight()
+	public function getWeight()
 	{
-		return $this->height;
+		return $this->weight;
 	}
 
-	public function getWidth()
+	public function setWeight($weight)
 	{
-		return $this->width;
+		$this->weight = $weight;
 	}
-
-	public function getLength()
-	{
-		return $this->length;
-	}
-
-	public function setHeight($height)
-	{
-		$this->height = $height;
-	}
-
-	public function setWidth($width)
-	{
-		$this->width = $width;
-	}
-
-	public function setLength($length)
-	{
-		$this->length = $length;
-	}
-
 }

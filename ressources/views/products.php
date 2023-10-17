@@ -3,10 +3,9 @@
 $title = 'Product List';
 
 $actionBtn = '
+<form method="POST" action="delProduct">
 <a href="addProduct" class="btn btn-primary" id="add-product-btn">ADD</a>
-<button type="button" class="btn btn-danger" style="margin-left:20px" id="delete-product-btn">
-MASS DELETE
-</button>
+<input type="submit" class="btn btn-danger" style="margin-left:20px" id="delete-product-btn" value="MASS DELETE"/>
 ';
 
 // start buffering

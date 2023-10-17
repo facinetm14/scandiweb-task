@@ -33,8 +33,13 @@ class ProductService
 		return $Allproducts;
 	}
 
-	public function save()
+	public function save($productDto)
 	{
+		$this->repo->save($productDto);
+	}
 
+	public function delete($ids)
+	{
+		$this->repo->remove($ids);
 	}
 }
