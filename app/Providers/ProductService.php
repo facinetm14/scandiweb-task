@@ -2,22 +2,38 @@
 
 namespace App\Providers;
 
+require_once('app/Entity/Dvd.php');
+
+use App\Models\ProductRepository as ProductRepository;
+
 class ProductService
 {
-	static $products = [
-		array("id" => 1, "sku" => "JVC00123", "name" => "Acme", "price" => "120", "specs" => "233Kg"),
-		array("id" => 1, "sku" => "JVC00123", "name" => "Acme", "price" => "120", "specs" => "233Kg"),
-		array("id" => 1, "sku" => "JVC00123", "name" => "Acme", "price" => "120", "specs" => "233Kg"),
-		array("id" => 1, "sku" => "JVC00123", "name" => "Acme", "price" => "120", "specs" => "233Kg"),
-	];
+	private ProductRepository $repo;
 
-	static function findAll() 
+	function __construct()
 	{
-		
-		return self::$products;
+		$this->repo = new ProductRepository();
 	}
 
-	static function save()
+	public function findAll() 
+	{
+		$Allproducts = [];
+
+		$data = $this->repo->findAll();
+
+		if(!empty($data)) {
+			foreach($data as $el) {
+				$type = "App\Entity\\".$el['type'];
+				$product = new $type();
+				$product->hydrate($el);
+				array_push($Allproducts, $product);
+			}
+		} 
+
+		return $Allproducts;
+	}
+
+	public function save()
 	{
 
 	}

@@ -4,9 +4,18 @@ namespace App\Entity;
 
 abstract class Product
 {
-	protected string sku;
-	protected string name;
-	protected int    price;
+	protected string $sku;
+	protected string $name;
+	protected 		 $price;
+	protected string $type;
+
+	function __construct()
+	{
+		$this->sku = "";
+		$this->name = "";
+		$this->price = 0;
+		$this->type = "";
+	}
 
 	public function getSku()
 	{
@@ -20,7 +29,12 @@ abstract class Product
 
 	public function getPrice()
 	{
-		return $this->name;
+		return $this->price;
+	}
+
+	public function getType()
+	{
+		return $this->type;
 	}
 
 	public function setSku($sku)
@@ -28,7 +42,7 @@ abstract class Product
 		$this->sku = $sku;
 	}
 
-	public function setName() 
+	public function setName($name) 
 	{
 		$this->name = $name;
 	}
@@ -38,4 +52,8 @@ abstract class Product
 		$this->price = $price;
 	}
 
+	public function setType($type)
+	{
+		$this->type = $type;
+	}
 }

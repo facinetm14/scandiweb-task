@@ -1,4 +1,8 @@
 <?php
+
+namespace App\DataBase;
+use PDO;
+
 class Database
 {
     private static $instance;

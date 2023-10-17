@@ -1,6 +1,7 @@
 <?php
 
-use App\Controllers\ProductController as ProductController; 
+use App\Controllers\ProductController as ProductController;
+use App\Tests\ProductTest as ProductTest; 
 
 $router = new AltoRouter();
 
@@ -19,6 +20,15 @@ $router->map('POST', '/addProduct', function() {
     ProductController::create($productDTO);
 });
 
+//--------------------Just For Testing------------
+$router->map('GET', '/testProduct', function() {
+	$tester = new ProductTest();
+	$tester->testProductCreatedSuccess();
+	$tester->testProductAccessor();
+	$tester->testProductHydrate();
+	$tester->repositoryFindAll();
+});
+//------------------------------------------------
 $match = $router->match();
 
 if (!$match) {
